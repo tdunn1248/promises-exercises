@@ -4,8 +4,6 @@ function attachTitle(name) {
 
 const fulFilled = Promise.resolve('MANHATTAN')
 
-fulFilled.then(attachTitle).then(console.log)
-
-//Promise.resolve('MANHATTAN')
-// .then(attachTitle)
-// .then(console.log)
+fulFilled
+  .then(attachTitle)
+  .then(console.log)
