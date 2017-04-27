@@ -1,12 +1,15 @@
-
-const alwaysThrows = function() {
-  console.log(["Error: OH NOES"])
+function alwaysThrows() {
+  console.log('Error: OH NOES')
 }
 
-const iterate = function(arg) {
+function iterate(arg) {
   console.log(arg)
   return arg += 1
 }
 
-
-iterate(1).then(iterate).catch(console.log)
+Promise.resolve(iterate(1))
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(alwaysThrows)

@@ -1,21 +1,26 @@
+function all(prom1, prom2) {
+  return new Promise((resolve, reject) => {
+    let counter = 0
+    let promises = []
 
+    function count() {
+      counter++
+      if (counter === 2) resolve(promises)
+    }
 
-const getAll = (promise1, promise2) => {
+    prom1
+      .then((val) => {
+        promises[0] = val
+        count()
+      })
 
-  let counter = 0
-  let promiseArray = new Promise (function(resolve, reject) {
-    let arr = [];
-    let promiseUno = promise1
-    let promiseDos = promise2
-      if (arr.length < 1) {
-        arr.push(promiseUno)
-    } else if (arr.length = 1 && arr.length < 3) {
-        arr.push(promiseDos)
-    } else resolve(arr)
-  }).then( (promiseAdded) => {
-      counter += 1;
-  }).then(console.log)
-
+    prom2
+      .then((val) => {
+        promises[1] = val
+        count()
+      })
+  });
 }
 
-getAll(getPromise1(), getPromise2());
+all(getPromise1(), getPromise2())
+  .then(console.log)
