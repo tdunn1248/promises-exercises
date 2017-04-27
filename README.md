@@ -1,5 +1,7 @@
 # Promises Exercises
 
+## Thomas Dunn
+
 Base repository for the [promises-applied](https://github.com/GuildCrafts/web-development-js/issues/186) goal.
 
 ## Description
